@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import SocialPill from "../components/SocialPill.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import BriefcaseIcon from "../components/icons/Briefcase.astro";
+import PresentationIcon from "../components/icons/Presentation.astro";
+import Projects from "../components/Projects.astro";
+---
+
+<Layout
+	title="Portfolio de Diego Lescano - Diseñador Web y Analista en Marketing."
+	description="Disponible para trabajar en tu próximo proyecto web."
+>
+	<main class="px-4">
+		<SectionContainer class="py-44 pb-32">
+			<img
+				class="rounded-full size-12"
+				src="https://media.licdn.com/dms/image/D4D03AQFhYWkVUe_06w/profile-displayphoto-shrink_800_800/0/1698275958857?e=1720051200&v=beta&t=PolWIrVjFClItlaRSvp_1OZOydU9JftOsVj_0eMTrXk"
+				alt="foto de Diego"
+			/>
+			<h1
+				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+			>
+				Hola, soy Diego!
+				<a
+					href="https://www.linkedin.com/in/diegolescano/"
+					target="_blank"
+					rel="noopener"
+					class="flex justify-center items-center"
+				>
+					<Badge>Disponible para trabajar</Badge>
+				</a>
+			</h1>
+			<h2 class="text-xl lg:text-2xl text-wrap opacity-80 max-w-[700px]">
+				+5 años de experiencia. <span class="text-teal-200"
+					>Diseñador Web y Analista en Marketing.</span
+				>
+				De Montevideo, Uruguay. Me especializo en desarrollar eCommerce con
+				WordPress y WooCommerce.
+			</h2>
+
+			<nav class="flex gap-4 mt-8 flex-wrap">
+				<SocialPill href="https://www.linkedin.com/in/diegolescano/">
+					<LinkedInIcon class="size-4 lg:size-6" />
+					LinkedIn
+				</SocialPill>
+				<SocialPill href="mailto:dlescano2@gmail.com">
+					<MailIcon class="size-4 md:size-6" />
+					dlescano2@gmail.com
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="experiencia">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+				<BriefcaseIcon class="size-6" />
+				Experiencia Laboral</h2>
+			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="proyectos">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+				<PresentationIcon case class="size-6" />
+				Proyectos</h2>
+			<Projects />
+		</SectionContainer>
+	</main>
+</Layout>

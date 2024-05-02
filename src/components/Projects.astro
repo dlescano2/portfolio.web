@@ -1,0 +1,48 @@
+---
+import WordPress from './icons/WordPress.astro'
+
+const TAGS = {
+    WORDPRESS: {
+        name: "WordPress",
+        class: "bg-black text-white",
+        icon: WordPress,
+    },
+};
+
+const PROJECTS = [
+    {
+        title: "Delta Colchones y Muebles - E-Commerce",
+        description:
+            "Realicé el desarrollo y diseño del E-Commerce de la marca, la cual ofrece una amplia selección de colchones y muebles para el hogar. Mi enfoque fue crear una experiencia de compra intuitiva y atracticva, destacando los productos y facilitando las transacciones para los usuarios.",
+        link: "https://deltacenter.com.uy/",
+        github: "#",
+        image: "/projects/delta-project.webp",
+        tags: [TAGS.WORDPRESS],
+    },
+];
+---
+
+{
+    PROJECTS.map(({ image, title, description, tags }) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-teal-200 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-2 flex-row mb-4">
+                {tags.map((tag) => (
+                    
+                    <li>
+                        <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img
+                class="rounded shadow-2xl shadow-white/10"
+                src={image}
+                alt={`Captura de pantalla del proyecto ${image}`}
+            />
+        </article>
+    ))
+}

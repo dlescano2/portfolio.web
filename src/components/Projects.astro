@@ -1,5 +1,8 @@
 ---
+import LinkButton from './LinkButton.astro';
 import WordPress from './icons/WordPress.astro'
+import GitHubIcon from './icons/GitHub.astro'
+import WorldWebIcon from './icons/WorldWeb.astro'
 
 const TAGS = {
     WORDPRESS: {
@@ -13,36 +16,71 @@ const PROJECTS = [
     {
         title: "Delta Colchones y Muebles - E-Commerce",
         description:
-            "Realicé el desarrollo y diseño del E-Commerce de la marca, la cual ofrece una amplia selección de colchones y muebles para el hogar. Mi enfoque fue crear una experiencia de compra intuitiva y atracticva, destacando los productos y facilitando las transacciones para los usuarios.",
+            "Desarrollo y diseño del E-Commerce de la marca. Ofrece una amplia selección de colchones y muebles para el hogar.",
         link: "https://deltacenter.com.uy/",
-        github: "#",
+        github: "",
         image: "/projects/delta-project.webp",
+        tags: [TAGS.WORDPRESS],
+    },
+    {
+        title: "Cabañas La Pedrera",
+        description:
+            "Desarrollo y diseño de un complejo de cabañas ubicado en La Pedrera, Uruguay.",
+        link: "https://lapedreraderocha.com.uy/",
+        github: "",
+        image: "/projects/cabanas-project.webp",
         tags: [TAGS.WORDPRESS],
     },
 ];
 ---
 
+<div class="flex flex-col gap-y-16">
 {
-    PROJECTS.map(({ image, title, description, tags }) => (
-        <article>
-            <h3 class="text-2xl font-semibold text-teal-200 mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="flex gap-x-2 flex-row mb-4">
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+            <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img alt="Imagen del proyecto" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+            <h3 class="text-2xl font-bold text-gray-100">
+            {title}
+            </h3>
+            <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
                 {tags.map((tag) => (
-                    
                     <li>
-                        <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-                            <tag.icon class="size-4" />
-                            {tag.name}
-                        </span>
+                    <span
+                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                    >
+                        <tag.icon class="size-4" />
+                        {tag.name}
+                    </span>
                     </li>
                 ))}
-            </ul>
-            <img
-                class="rounded shadow-2xl shadow-white/10"
-                src={image}
-                alt={`Captura de pantalla del proyecto ${image}`}
-            />
-        </article>
+                </ul>
+
+            <div class="mt-2 text-gray-400">{description}</div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+                {github && (
+                    <LinkButton href={github}>
+                    <GitHubIcon class="size-6" />
+                    Ver código
+                    
+                    </LinkButton>
+                )}
+                {link && (
+                    <LinkButton href={link}>
+                    <WorldWebIcon class="size-4" />
+                    Ir al sitio
+                    </LinkButton>
+                )}
+                </footer>
+            </div>
+        </div>
+    </article>
     ))
 }
+</div>

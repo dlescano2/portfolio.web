@@ -3,15 +3,17 @@ import ExperienceItem from "./ExperienceItem.astro";
 
 const EXPERIENCE = [
     {
-        date: "2017 - Actualidad",
-        title: "Diseñador Web / Analista en Marketing - Delta Colchones y Muebles",
+        date: "08/2017 - Actualidad",
+        title: "Diseñador Web / Analista en Marketing",
+        company: "Delta Colchones y Muebles",
         description:
-            "En mi trayectoria en la empresa, he asumido diversas responsabilidades. Me he encargado del diseño y desarrollo del eCommerce, enfocado en la experiencia de usuario. Mi enfoque se ha centrado en estrategias de Marketing, abarcando tanto lo digital como lo tradicional, lo que ha resultado en campañas exitosas que han impulsado el crecimiento de la marca. A su vez, poseo amplia experiencia en trabajar con Mercado Libre, y he llevado a cabo labores de fotografía de productos y edición de videos, añadiendo valor visual a nuestra presencia en línea",
+            "He asumido diversas responsabilidades, tanto en el diseño y desarrollo del eCommerce, como en las estrategias de Marketing, abarcando tanto lo digital como lo tradicional. Adquirí amplia experiencia en trabajar con Mercado Libre, y he llevado a cabo labores de fotografía de productos y edición de videos.",
         link: "https://deltacenter.com.uy/",
     },
     {
-        date: "2014 - 2017",
-        title: "Diseñador Gráfico - Cofre del Tesoro",
+        date: "10/2014 - 05/2017",
+        title: "Diseñador Gráfico",
+        company: "Cofre del Tesoro",
         description:
             "He trabajado en diversas áreas, incluyendo el diseño de plantillas y la fotografía de productos para Mercado Libre, gestionando un catálogo de más de 1000 SKUs y creando banners y promociones especiales. Además, he diseñado banners publicitarios y actualizado productos en sitios web, manejado redes sociales como Facebook e Instagram, y ejecutado campañas de email marketing.",
         link: "",
@@ -19,12 +21,13 @@ const EXPERIENCE = [
 ];
 ---
 
-<ol class="relative border-s border-gray-200 ml-3">
+
+<ol class="relative mt-16">
     {
-        EXPERIENCE.map((experience) => (
-            <li class="mb-10 ms-4">
-                <ExperienceItem {...experience} />
-            </li>
-        ))
+      EXPERIENCE.map((experience) => (
+        <li class="">
+          <ExperienceItem {...experience} />
+        </li>
+      ))
     }
-</ol>
+  </ol>
